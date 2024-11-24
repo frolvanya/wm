@@ -1,0 +1,102 @@
+after-login-command = []
+
+after-startup-command = [
+    'exec-and-forget /run/current-system/sw/bin/sketchybar > /tmp/sketchybar.log 2>&1',
+	'exec-and-forget /run/current-system/sw/bin/borders active_color="glow(0xff88c0d0)" width=5.0'
+]
+
+exec-on-workspace-change = ['/bin/bash', '-c',
+    '/run/current-system/sw/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+
+default-root-container-orientation = 'auto'
+
+key-mapping.preset = 'qwerty'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[gaps]
+inner.horizontal = 10
+inner.vertical =   10
+outer.left =       10
+outer.bottom =     10
+outer.top =        10
+outer.right =      10
+
+[mode.main.binding]
+alt-r = 'mode resize'
+alt-o = 'mode layout'
+
+alt-p = 'mode pane'
+alt-shift-h = 'mode move'
+
+alt-shift-semicolon = 'mode service'
+
+cmd-h = 'focus left'
+cmd-j = 'focus down'
+cmd-k = 'focus up'
+cmd-l = 'focus right'
+
+alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+[mode.layout.binding]
+h = 'layout tiles horizontal vertical'
+v = 'layout accordion horizontal vertical'
+enter = 'mode main'
+esc = 'mode main'
+
+[mode.resize.binding]
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+enter = 'mode main'
+esc = 'mode main'
+
+[mode.pane.binding]
+alt-l = 'workspace-back-and-forth'
+alt-h = 'move-workspace-to-monitor --wrap-around next'
+
+h = ['workspace Browser', 'mode main']
+j = ['workspace NEAR', 'mode main']
+k = ['workspace ETH', 'mode main']
+l = ['workspace Other', 'mode main']
+s = ['workspace Social', 'mode main']
+m = ['workspace Mail', 'mode main']
+
+shift-h = 'move-node-to-workspace Browser'
+shift-j = 'move-node-to-workspace NEAR'
+shift-k = 'move-node-to-workspace ETH'
+shift-l = 'move-node-to-workspace Other'
+shift-s = 'move-node-to-workspace Social'
+shift-m = 'move-node-to-workspace Mail'
+
+enter = 'mode main'
+esc = 'mode main'
+
+[mode.move.binding]
+h = 'move left'
+j = 'move down'
+k = 'move up'
+l = 'move right'
+enter = 'mode main'
+esc = 'mode main'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
